@@ -12,16 +12,18 @@
         <field name="model">hotel.model.offer</field>
         <field name="arch" type="xml">
             <tree string="Offer">
-             <!-- decoration-success="status == 'accepted'"
-                decoration-danger="status == 'refused'" -->
+
                 <field name="customer_id" string="Customer"></field>
                 <field name="price" string="Price"></field>
-                <field name="room_type" string="Room Type"></field>
+
+                <button name="action_accepted" type="object" icon="fa-check"
+                    attrs="{'invisible':[('room_status','in',['accepted','refused'])]}" title="accept" />
+                <button name="action_refused" type="object" icon="fa-close"
+                    attrs="{'invisible':[('room_status','in',['accepted','refused'])]}" title="refuse" />
+
+
                 <field name="room_status" string="Room Status"></field>
 
-                <!-- <button name="action_room_booked" type="object" icon="fa-check"
-                    attrs="{'invisible':[('status','in',['room_booked'])]}" title="room booked" />
-             -->
 
             </tree>
         </field>

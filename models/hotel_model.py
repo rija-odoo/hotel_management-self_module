@@ -14,14 +14,26 @@ class HotelModel(models.Model):
     email = fields.Char()
     website = fields.Char()
     description = fields.Text()
-    zip_code=fields.Char()
+    zip_code = fields.Char()
     star_rating = fields.Selection(
         selection=[
-            ('1', '1 Star'),
-            ('2', '2 Stars'),
-            ('3', '3 Stars'),
-            ('4', '4 Stars'),
-            ('5', '5 Stars')
+            ('one', '1 Star'),
+            ('two', '2 Stars'),
+            ('three', '3 Stars'),
+            ('four', '4 Stars'),
+            ('five', '5 Stars')
         ], string='Star Rating',
     )
+    states=fields.Selection(
+        selection=[('new', 'New'), ('offer_received', 'Offer Received'), ('offer_accepted', ' Offer Accepted'), ('booked', 'Booked'), ('canceled', 'Canceled')], copy=True, default='new',
+        string='States',
+    )
     facility = fields.Many2many("hotel.model.facility")
+
+    room_type_id = fields.Many2one(
+        "hotel.model.type", string="room_type")
+
+    offer_ids = fields.One2many(
+        "hotel.model.offer", "room_id", string="Offer")
+
+   

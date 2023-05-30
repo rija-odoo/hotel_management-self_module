@@ -9,6 +9,7 @@
 
         <menuitem id="hotel_facility_menu" name="Facility">
             <menuitem id="hotel_model_setting_action" action="hotel_model_facility_action" />
+            <menuitem id="hotel_model_type_menu_action" action="hotel_model_type_action" />
         </menuitem>
     </menuitem>
 
