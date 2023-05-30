@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <menuitem id="hotel_menu_root" name="Hotel">
+        <menuitem id="hotel_advertisement_menu" name="Advertisement">
+            <menuitem id="hotel_model_menu_action" action="hotel_model_action" />
+        </menuitem>
+
+        <menuitem id="hotel_facility_menu" name="Facility">
+            <menuitem id="hotel_model_setting_action" action="hotel_model_facility_action" />
+        </menuitem>
+    </menuitem>
+
+</odoo>
