@@ -5,43 +5,100 @@
     <record id="hotel_model_action" model="ir.actions.act_window">
         <field name="name">Hotel</field>
         <field name="res_model">hotel.model</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+    <!-- For Kanban View -->
+
+    <record id='hotel_view_kanban' model='ir.ui.view'>
+        <field name="name">hotel.view.kanban</field>
+        <field name="model">hotel.model</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="room_type_id" class="o_res_partner_kanban">
+                <field name="state" />
+                <field name="image" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="o_kanban_image" style="height:100px width:100px">
+                                <img
+                                    t-att-src="kanban_image('hotel.model','image',record.id.raw_value)" class="oe_resource_picture" />
+                            </div>
+                            <div>
+                                <strong>
+                                    <field name="name" />
+                                </strong>
+                                <div>Expected Price : <field name="expected_price"></field>
+                                </div>
+
+                                <div t-if="record.state.raw_value =='offer_received'"> Offer Price : <field
+                                        name="offer_price"></field>
+                                </div>
+
+                                <div t-if="record.state.raw_value =='offer_accepted'"> Rent Price : <field
+                                        name="rent_price"></field>
+                                </div>
+
+                                <div class="o_value"> Offer : <field name="offer_ids"></field>
+                                </div>
+
+                                <!-- <div>
+                                    <field name="tag_ids" widget="many2many_tags"
+                                        options="{'color_field': 'color'}"></field>
+                                </div> -->
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+                <field name="id" attrs="{'invisible': True}"/> 
+            </kanban>
+        </field>
     </record>
 
 
     <!-- Hotel Form View -->
 
-    <record id="view_hotel_form" model="ir.ui.view">
-        <field name="name">hotel_model_hotel_form</field>
+    <record id="hotel_view_form" model="ir.ui.view">
+        <field name="name">hotel.view.form</field>
         <field name="model">hotel.model</field>
         <field name="arch" type="xml">
             <form>
-
                 <header>
-                    <field name="states" widget="statusbar"></field>
-                    <!-- <button name="action_sold" type="object" string="SOLD"
+                    <field name="state" widget="statusbar"></field>
+                    <button name="action_booked" type="object" string="BOOKED"
                         states="new,offer_received" />
-                    <button name="action_sold" type="object" string="SOLD   "
+                    <button name="action_booked" type="object" string="BOOKED"
                         states="offer_accepted"
                         class="oe_highlight"></button>
                     <button name="action_cancled" type="object" string="CANCEL"
-                        states="new,offer_received,offer_accepted" /> -->
+                        states="new,offer_received,offer_accepted" />
                 </header>
                 <sheet>
+                    <h1>
+                        <field name="name" />
+
+                    </h1>
                     <group>
                         <group>
-                            <field name="name" />
+                        <field name="image" class="o_avtar" widget="image"></field>
                             <field name="city" />
-                            <field name="state" />
+                            <field name="states" />
                             <field name="country" />
+                        </group>
+                        <group>
+                            <field name="expected_price"></field>
+                            <field name="offer_price"></field>
+                            <field name="rent_price"></field>
                         </group>
                     </group>
                     <notebook>
                         <page string="Details">
                             <group>
+                                <field name="description" />
                                 <field name="facility" widget="many2many_tags"
                                     options="{'color_field': 'color'}" />
-                                <field name="description" />
                                 <field name="website" />
                                 <field name="star_rating" />
 
@@ -52,7 +109,7 @@
                         </page>
                         <page string="Other info">
                             <group>
-
+                                <field name="room_type_id" string="Room Type"></field>
                             </group>
                         </page>
                     </notebook>
@@ -64,22 +121,24 @@
     <!-- Hotel Tree View -->
 
     <record id="view_hotel_tree" model="ir.ui.view">
-        <field name="name">hotel_model_hotel_tree</field>
+        <field name="name">view.hotel.tree</field>
         <field name="model">hotel.model</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name" string="Title" />
                 <field name="city" />
                 <field name="country" />
-                <field name="star_rating" />
                 <field name="facility" widget="many2many_tags" options="{'color_field': 'color'}" />
+                <field name="star_rating" />
+                <field name="expected_price"></field>
+                <field name="rent_price"></field>
             </tree>
         </field>
     </record>
 
     <!-- Hotel Search View -->
     <record id="view_hotel_search" model="ir.ui.view">
-        <field name="name">hotel_model_hotel_search</field>
+        <field name="name">view.hotel.search</field>
         <field name="model">hotel.model</field>
         <field name="arch" type="xml">
             <search>
@@ -87,6 +146,8 @@
                 <field name="city" />
                 <field name="country" />
                 <field name="star_rating" />
+                <field name="expected_price"></field>
+                <field name="offer_price"></field>
             </search>
         </field>
     </record>

@@ -17,5 +17,11 @@
         'views/hotel_menus.xml',
     ],
     # data files containing optionally loaded demonstration data
+
+    "demo": [
+        "demo/hotel_demo.xml",
+    ],
+
+
     'application': True,
 }

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <record id="hotel_model_type_delux_room" model="hotel.model.type">
+        <field name="name">Delux Room</field>
+        <field name="room_rent">5000</field>
+    </record>
+
+    <record id="hotel_model_type_hollywood_twins" model="hotel.model.type">
+        <field name="name">Hollywood Twins</field>
+        <field name="room_rent">4999</field>
+    </record>
+
+    <record id="hotel_model_type_connecting_rooms" model="hotel.model.type">
+        <field name="name">Connecting rooms</field>
+        <field name="room_rent">3299</field>
+    </record>
+
+    <record id="hotel_model_type_room_only" model="hotel.model.type">
+        <field name="name">Room only</field>
+        <field name="room_rent">1599</field>
+    </record>
+
+    <record id="hotel_model_type_double" model="hotel.model.type">
+        <field name="name">Double</field>
+        <field name="room_rent">2000</field>
+    </record>
+
+    <record id="hotel_marriott" model="hotel.model">
+        <field name="name">Marriott</field>
+        <field name="city">Inodre</field>
+        <field name="star_rating">four</field>
+        <field name="country">India</field>
+        <field name="states">Madhya Pradesh</field>
+        <field name="expected_price">1000</field>
+        <field name="description">Marriott Hotels and Resorts is Marriott International's brand of
+            full-service hotels and resorts based in Bethesda, Maryland. </field>
+
+    </record>
+
+
+    <record id="hotel_four_seasons" model="hotel.model">
+        <field name="name">Four Seasons</field>
+        <field name="city">Gandhi Nagar</field>
+        <field name="star_rating">three</field>
+        <field name="country">India</field>
+        <field name="states">Gujrat</field>
+        <field name="expected_price">1000</field>
+        <field name="description">Visit the main site for Four Seasons Hotels and Resorts to find a
+            luxury hotel or resort around the globe for your vacation, wedding or business travel.</field>
+    </record>
+
+
+    <record id="hotel_mandarin_oriental" model="hotel.model">
+        <field name="name">Mandarin Oriental</field>
+        <field name="city">New York </field>
+        <field name="star_rating">one</field>
+        <field name="country">America</field>
+        <field name="states">New York </field>
+        <field name="expected_price">1000</field>
+        <field name="description">Mandarin Oriental hotels offer world-class accommodations, spas
+            and fine dining experiences.</field>
+
+    </record>
+
+
+    <record id="hotel_belmond" model="hotel.model">
+        <field name="name">Belmond</field>
+        <field name="city">Abu Dhabi</field>
+        <field name="star_rating">five</field>
+        <field name="country">Duabi</field>
+        <field name="states">Emirate</field>
+        <field name="expected_price">1000</field>
+        <field name="description">Visit the Belmond website to find a luxury hotel or resort,
+            timeless train or river cruise journey, or adventurous safari.</field>
+    </record>
+
+
+    <record id="hotel_ritz_carlton_hotel" model="hotel.model">
+        <field name="name">Ritz-Carlton Hotel</field>
+        <field name="city">Ahemdabad</field>
+        <field name="star_rating">two</field>
+        <field name="country">India</field>
+        <field name="states">Madhya Pradesh</field>
+        <field name="expected_price">1000</field>
+        <field name="description">The Ritz-Carlton Hotel Company, LLC is an American multinational
+            company that operates the luxury hotel chain known as The Ritz-Carlton. </field>
+    </record>
+
+
+    <record id="hotel_marriott_offer1" model="hotel.model.offer">
+        <field name="customer_id" ref="base.res_partner_2"></field>
+        <field name="price">1999</field>
+        <field name="room_id" ref="hotel_marriott"></field>
+    </record>
+
+    <record id="hotel_marriott_offer2" model="hotel.model.offer">
+        <field name="customer_id" ref="base.res_partner_2"></field>
+        <field name="price">2999</field>
+        <field name="room_id" ref="hotel_marriott"></field>
+    </record>
+
+    <record id="hotel_marriott_offer3" model="hotel.model.offer">
+        <field name="customer_id" ref="base.res_partner_12"></field>
+        <field name="price">3999</field>
+        <field name="room_id" ref="hotel_marriott"></field>
+
+    </record>
+
+    <function model="hotel.model.offer" name="action_accepted">
+        <value eval="[ref('hotel_marriott_offer2')]" />
+    </function>
+
+
+    <record id="hotel_model_facility_AC" model="hotel.model.facility">
+        <field name="name">AC</field>
+        <field name="color">1</field>
+    </record>
+
+    <!-- <record id="hotel_model_facility_AC" model="hotel.model.facility">
+        <field name="name">Non-AC</field>
+        <field name="color">2</field>
+    </record>
+
+    <record id="hotel_model_facility_AC" model="hotel.model.facility">
+        <field name="name">SPA</field>
+        <field name="color">3</field>
+    </record> -->
+
+
+    <!-- <record id="hotel_the_gritty_palace " model="hotel.model">
+        <field name="name">The Gritty Palace </field>
+        <field name="city">Delhi</field>
+        <field name="star_rating">four</field>
+        <field name="country">India</field>
+        <field name="states">Madhya Pradesh</field>
+        <field name="description">The Gritti Palace sits with a private jetty in the heart of the Grand
+    Canal.</field>
+        <field name="offer_ids"
+            eval="[
+        Command.create({
+            'customer_id' : ref('base.res_partner_12'),
+            'price': 4999,
+            'state' : accepted,
+        })]" />
+
+    </record> -->
+
+
+</odoo>

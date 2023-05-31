@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record id="hotel_model_type_action" model="ir.actions.act_window">
-        <field name="name">Hotel Type</field>
+        <field name="name">Room Type</field>
         <field name="res_model">hotel.model.type</field>
         <field name="view_mode">tree,form</field>
     </record>
@@ -12,7 +12,8 @@
         <field name="model">hotel.model.type</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name" string="Hotel Type"></field>
+                <field name="name" string="Room Type"></field>
+                <field name="room_rent" string="Room Rent"></field>
             </tree>
         </field>
     </record>

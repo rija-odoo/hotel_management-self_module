@@ -6,4 +6,5 @@ class HotelModelType(models.Model):
     _description = "Hotel Model Type"
 
     name = fields.Char(required=True)
+    room_rent=fields.Integer()
 

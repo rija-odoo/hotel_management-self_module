@@ -11,7 +11,7 @@
         <field name="name">hotel.model.offer.tree</field>
         <field name="model">hotel.model.offer</field>
         <field name="arch" type="xml">
-            <tree string="Offer">
+            <tree editable='bottom' string="Offer">
 
                 <field name="customer_id" string="Customer"></field>
                 <field name="price" string="Price"></field>
