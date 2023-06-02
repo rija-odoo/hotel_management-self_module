@@ -2,9 +2,9 @@ from odoo import fields, models, api
 from dateutil.relativedelta import relativedelta
 from odoo.exceptions import UserError
 
-class HotelModelOffer(models.Model):
-    _name = "hotel.model.offer"
-    _description = "Hotel Model Offer"
+class HotelModelDiscount(models.Model):
+    _name = "hotel.model.discount"
+    _description = "Hotel Model discount"
 
     price = fields.Float()
 
@@ -19,10 +19,10 @@ class HotelModelOffer(models.Model):
 
     def action_accepted(self):
         for record in self:
-            record.room_id.offer_ids.room_status = 'refused'
+            record.room_id.discount_ids.room_status = 'refused'
             record.room_status = 'accepted'
             record.room_id.rent_price = record.price
-            record.room_id.state = 'offer_accepted'
+            record.room_id.state = 'discount_accepted'
 
     def action_refused(self):
         self.room_status = "refused"
@@ -31,8 +31,8 @@ class HotelModelOffer(models.Model):
     @api.model
     def create(self, vals):
         temp = self.env['hotel.model'].browse(vals['room_id'])
-        temp.state = "offer_received"
-        if temp.offer_price >= vals['price']:
+        temp.state = "discount_received"
+        if temp.discount_price >= vals['price']:
             raise UserError(
-                "offer price should be greater than existing offer %.2f" % temp.offer_price)
+                "discount price should be greater than existing discount %.2f" % temp.discount_price)
         return super().create(vals)

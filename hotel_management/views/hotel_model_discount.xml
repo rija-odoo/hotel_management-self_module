@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <odoo>
-    <record id="hotel_model_offer_action" model="ir.actions.act_window">
-        <field name="name">Offer</field>
-        <field name="res_model">hotel.model.offer</field>
+    <record id="hotel_model_discount_action" model="ir.actions.act_window">
+        <field name="name">Discount</field>
+        <field name="res_model">hotel.model.discount</field>
         <field name="view_mode">tree,form</field>
         <!-- <field name="domain"> [('property_type_id', '=', active_id)]</field> -->
     </record>
-    <record id="hotel_model_View_offer_tree" model="ir.ui.view">
-        <field name="name">hotel.model.offer.tree</field>
-        <field name="model">hotel.model.offer</field>
+    <record id="hotel_model_View_discount_tree" model="ir.ui.view">
+        <field name="name">hotel.model.discount.tree</field>
+        <field name="model">hotel.model.discount</field>
         <field name="arch" type="xml">
-            <tree editable='bottom' string="Offer">
+            <tree editable='bottom' string="discount">
 
                 <field name="customer_id" string="Customer"></field>
-                <field name="price" string="Price"></field>
-
+                <field name="price" string="How Much Discount"></field>
                 <button name="action_accepted" type="object" icon="fa-check"
                     attrs="{'invisible':[('room_status','in',['accepted','refused'])]}" title="accept" />
                 <button name="action_refused" type="object" icon="fa-close"
                     attrs="{'invisible':[('room_status','in',['accepted','refused'])]}" title="refuse" />
-
-
                 <field name="room_status" string="Room Status"></field>
-
-
             </tree>
         </field>
     </record>

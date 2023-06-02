@@ -32,7 +32,7 @@
         <field name="star_rating">four</field>
         <field name="country">India</field>
         <field name="states">Madhya Pradesh</field>
-        <field name="expected_price">1000</field>
+        <!-- <field name="room_price">1000</field> -->
         <field name="description">Marriott Hotels and Resorts is Marriott International's brand of
             full-service hotels and resorts based in Bethesda, Maryland. </field>
 
@@ -45,7 +45,7 @@
         <field name="star_rating">three</field>
         <field name="country">India</field>
         <field name="states">Gujrat</field>
-        <field name="expected_price">1000</field>
+        <!-- <field name="room_price">1000</field> -->
         <field name="description">Visit the main site for Four Seasons Hotels and Resorts to find a
             luxury hotel or resort around the globe for your vacation, wedding or business travel.</field>
     </record>
@@ -57,7 +57,7 @@
         <field name="star_rating">one</field>
         <field name="country">America</field>
         <field name="states">New York </field>
-        <field name="expected_price">1000</field>
+        <!-- <field name="room_price">1000</field> -->
         <field name="description">Mandarin Oriental hotels offer world-class accommodations, spas
             and fine dining experiences.</field>
 
@@ -70,7 +70,7 @@
         <field name="star_rating">five</field>
         <field name="country">Duabi</field>
         <field name="states">Emirate</field>
-        <field name="expected_price">1000</field>
+        <!-- <field name="room_price">1000</field> -->
         <field name="description">Visit the Belmond website to find a luxury hotel or resort,
             timeless train or river cruise journey, or adventurous safari.</field>
     </record>
@@ -82,19 +82,19 @@
         <field name="star_rating">two</field>
         <field name="country">India</field>
         <field name="states">Madhya Pradesh</field>
-        <field name="expected_price">1000</field>
+        <!-- <field name="room_price">1000</field> -->
         <field name="description">The Ritz-Carlton Hotel Company, LLC is an American multinational
             company that operates the luxury hotel chain known as The Ritz-Carlton. </field>
     </record>
 
 
-    <record id="hotel_marriott_offer1" model="hotel.model.offer">
+    <!-- <record id="hotel_marriott_offer1" model="hotel.model.offer">
         <field name="customer_id" ref="base.res_partner_2"></field>
         <field name="price">1999</field>
         <field name="room_id" ref="hotel_marriott"></field>
-    </record>
+    </record> -->
 
-    <record id="hotel_marriott_offer2" model="hotel.model.offer">
+    <!-- <record id="hotel_marriott_offer2" model="hotel.model.offer">
         <field name="customer_id" ref="base.res_partner_2"></field>
         <field name="price">2999</field>
         <field name="room_id" ref="hotel_marriott"></field>
@@ -115,7 +115,7 @@
     <record id="hotel_model_facility_AC" model="hotel.model.facility">
         <field name="name">AC</field>
         <field name="color">1</field>
-    </record>
+    </record> -->
 
     <!-- <record id="hotel_model_facility_AC" model="hotel.model.facility">
         <field name="name">Non-AC</field>

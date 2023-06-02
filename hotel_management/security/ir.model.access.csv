@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 hotel_management.access_hotel_model,access_hotel_model,hotel_management.model_hotel_model,base.group_user,1,1,1,1
 hotel_management.access_hotel_model_facility,access_hotel_model_facility,hotel_management.model_hotel_model_facility,base.group_user,1,1,1,1
-hotel_management.access_hotel_model_offer,access_hotel_model_offer,hotel_management.model_hotel_model_offer,base.group_user,1,1,1,1
+hotel_management.access_hotel_model_discount,access_hotel_model_discount,hotel_management.model_hotel_model_discount,base.group_user,1,1,1,1
 hotel_management.access_hotel_model_type,access_hotel_model_type,hotel_management.model_hotel_model_type,base.group_user,1,1,1,1
